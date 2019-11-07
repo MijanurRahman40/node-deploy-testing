@@ -52,4 +52,4 @@ weatherForm.addEventListener('submit', function (event)
                     }
                 });
         });
-})
+});

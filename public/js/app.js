@@ -31,15 +31,12 @@ const search = document.querySelector('input');
 const messageOne = document.querySelector('#message-1');
 const messageTwo = document.querySelector('#message-2');
 
-// messageOne.textContent = '';
-
 weatherForm.addEventListener('submit', function (event)
 {
     event.preventDefault();
     const location = search.value;
     messageOne.textContent = 'Loading...';
     messageTwo.textContent = '';
-
     fetch('/weather?address=' + location)
         .then(function (response)
         {
@@ -47,12 +44,9 @@ weatherForm.addEventListener('submit', function (event)
                 .then(function (weatherData)
                 {
                     if (weatherData.error) {
-                        // console.log(weatherData.error);
                         messageOne.textContent = weatherData.error;
                     }
                     else {
-                        // console.log(weatherData.forecast.temperature);
-                        // console.log(weatherData.location);
                         messageOne.textContent = weatherData.location;
                         messageTwo.textContent = weatherData.forecast;
                     }
